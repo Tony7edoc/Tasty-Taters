@@ -1,0 +1,249 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .main-image img {
+    width: 100%;
+  }
+  
+  header {
+    position: relative;
+  }
+  
+  header .logo {
+    position: absolute;
+    top: 3%;
+    left: 5%;
+  }
+  
+  header .logo img {
+    width: 100px;
+  }
+  
+  header .tagline {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+  }
+  
+  header .tagline p {
+    font-size: 2.5rem;
+    color: white;
+  }
+  
+  header .tagline h1 {
+    font-size: 2.5rem;
+    background-color: white;
+    padding: 1rem;
+  }
+  
+  main {
+    width: 80%;
+    margin: 2rem auto;
+  }
+  
+  main .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  main .navigation .hotlinks {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  main .navigation .hotlinks a {
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: 0;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+
+  main .navigation .hotlinks a:hover {
+    background-color: red;
+  }
+  
+  main .items-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+    width: 100%;
+  }
+  
+  main .items-grid .item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  main .items-grid .item .item-image {
+    width: 100%;
+  }
+  
+  main .items-grid .item .item-image img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  main .items-grid .item .like-count {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    align-items: center;
+  }
+  main .items-grid .item .item-name {
+    padding: 0 0.5rem;
+    font-weight: bold;
+    
+  }
+  
+  main .items-grid .item .item-reviews {
+    padding: 0 0.5rem;
+    display: flex;
+    gap: 1rem;
+  
+  }
+  
+  main .items-grid .item .item-reviews a {
+    text-decoration: none;
+  }
+  
+  main .items-grid .item .item-price {
+    padding: 0rem 0rem 1rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  main .items-grid .item .item-price h2 {
+    color: red;
+  }
+  
+  footer {
+    text-align: center;
+  }
+  
+  footer .footer-logo img {
+    width: 100px;
+  }
+  
+  footer .quality {
+    margin-bottom: 1rem;
+  }
+  
+  footer .copyright p {
+    border-top: 2px solid gray;
+    padding: 1.5rem 0rem;
+  }
+  
+  body {
+    position: relative;
+  }
+  
+  body .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  }
+  
+  .overlay .review-box {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    background-color: white;
+    padding: 2rem;
+    transform: translate(-50%,-50%); 
+    width: 50%;
+    border-radius: 20px;
+  }
+  
+  .overlay .review-box .close {
+    display: flex;
+    justify-content: end;
+  }
+  .overlay .review-box .write-review {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .overlay .review-box .thoughts {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  
+  .overlay .review-box .thoughts img {
+    width: 150px;
+  }
+  
+  .overlay .review-box .input {
+    width: 80%;
+    display: block;
+  }
+  
+  .overlay .review-box .input input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 1rem 0rem;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    outline: none;
+  }
+  
+  .overlay .review-box .review-button button {
+    padding: 15px 30px;
+    background-color: red;
+    color: #fff;
+    border-radius: 20px;
+    border: 0;
+  }
+  
+  .overlay .review-box .comment {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 2rem 0rem;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    outline: none;
+  
+  }
+
+
+  .cart-operations {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cart-operations .operand {
+    background-color: red;
+    color: white;
+    padding: 3px 5px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
