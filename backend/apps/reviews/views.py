@@ -7,10 +7,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ReviewList(generics.ListAPIView):
-    queryset = Review.objects.order_by('-id')
+    queryset = Review.objects.order_by('-item_id')
     serializer_class = ReviewSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id']
+    filterset_fields = ['item_id']
 
 class ReviewAdd(generics.CreateAPIView):
     queryset = Review.objects.all()

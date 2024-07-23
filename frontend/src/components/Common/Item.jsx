@@ -2,7 +2,7 @@ import React from "react";
 import heartImg from '../../assets/img/heart.png'
 import { useDispatch } from "react-redux";
 import { addCart, decreaseCart, increaseCart } from "../../reducks/carts/operations";
-import cartImage from '../../assets/img/add-to-cart.png'
+import cartImage from '../../assets/img/cart.svg'
 
 const Item = ({item,selected_count,setShowWriteReview,setSelectedItemId,setShowReviews}) => {
 
@@ -31,22 +31,22 @@ const Item = ({item,selected_count,setShowWriteReview,setSelectedItemId,setShowR
   }
 
   return (
-    <div class="item">
-      <div class="item-image">
+    <div className="item">
+      <div className="item-image">
         <img src={item.image} alt="item" />
       </div>
-      <div class="like-count">
+      <div className="like-count">
         <img src={heartImg} alt="like" />
-        <p>(55)</p>
+        <p>{(item.total_like_count)}</p>
       </div>
-      <div class="item-name">
+      <div className="item-name">
         <p>{item.name}</p>
       </div>
-      <div class="item-reviews">
+      <div className="item-reviews">
         <a onClick={() => clickWriteReviw()}>write review</a>
         <a onClick={() => checkReview()}>check review</a>
       </div>
-      <div class="item-price">
+      <div className="item-price">
         {selected_count == 0 ? (
         <img src={cartImage} alt="cart"  onClick={clickAddCart}/>
       ) : (

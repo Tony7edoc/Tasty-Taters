@@ -10,7 +10,7 @@ export const fetchFromLocalStorage = () => {
         if (cartsJSON) {
             carts = JSON.parse(cartsJSON)
         }
-        const subtotal = calculateSubtoal(carts);
+        const subtotal = calculateSubtotal(carts);
         dispatch(fetchCartAction(carts,subtotal))
     }
 }
@@ -19,7 +19,7 @@ export const addCart = (item) => {
     return async (dispatch,getState) => {
         let prevCarts = getState().carts.list;
         prevCarts[item.id] = {item: item, selected_count: 1};
-        const subtotal = calculateSubtoal(prevCarts);
+        const subtotal = calculateSubtotal(prevCarts);
         setToLocalStorage(prevCarts);
         dispatch(addCartAction(prevCarts,subtotal))
     }
@@ -30,7 +30,7 @@ export const increaseCart = (item) => {
         let prevCarts = getState().carts.list;
         let nextSelectedCount = prevCarts[item.id].selected_count + 1;
         prevCarts[item.id] = {"item": item, "selected_count": nextSelectedCount};
-        const subtotal = calculateSubtoal(prevCarts);
+        const subtotal = calculateSubtotal(prevCarts);
         setToLocalStorage(prevCarts);
         dispatch(increaseCartAction(prevCarts,subtotal))
     }
@@ -45,7 +45,7 @@ export const decreaseCart = (item) => {
         } else {
             delete prevCarts[item.id]
         }
-        const subtotal = calculateSubtoal(prevCarts);
+        const subtotal = calculateSubtotal(prevCarts);
         setToLocalStorage(prevCarts);
         dispatch(decreaseCartAction(prevCarts,subtotal))
     }
@@ -56,7 +56,7 @@ const setToLocalStorage = (carts) => {
 }
 
 
-const calculateSubtoal = (carts) => {
+const calculateSubtotal = (carts) => {
     let subtotal = 0;
 
     for(let key in carts) {

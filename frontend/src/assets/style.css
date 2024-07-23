@@ -69,10 +69,13 @@
     background-color: black;
     color: white;
     cursor: pointer;
+    text-decoration: none;
   }
 
-  main .navigation .hotlinks a:hover {
+
+  main .navigation .hotlinks a.active {
     background-color: red;
+    color: #fff;
   }
   
   main .items-grid {
@@ -134,22 +137,6 @@
     color: red;
   }
   
-  footer {
-    text-align: center;
-  }
-  
-  footer .footer-logo img {
-    width: 100px;
-  }
-  
-  footer .quality {
-    margin-bottom: 1rem;
-  }
-  
-  footer .copyright p {
-    border-top: 2px solid gray;
-    padding: 1.5rem 0rem;
-  }
   
   body {
     position: relative;
@@ -174,6 +161,7 @@
     transform: translate(-50%,-50%); 
     width: 50%;
     border-radius: 20px;
+    overflow-y: auto;
   }
   
   .overlay .review-box .close {
@@ -246,4 +234,127 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .review-success {
+    text-align: center;
+    font-size: 18px;
+    color: green;
+}
+
+
+/****************************
+* footer 
+*****************************/
+
+footer {
+  position: sticky;
+  bottom: 0;
+  left: 0%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0px;
+  background-color: white;
+  z-index: 2;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+footer .subtotal {
+  font-size: 20px;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+footer button {
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: #D50304;
+  border-radius: 30px;
+  color: white;
+  border: 0;
+  padding: 15px 25px;
+  font-size: 15px;
+  font-family: "Hiragino Mincho ProN";
+  cursor: pointer;
+}
+
+footer button.link-button {
+  color: #fff;
+  background-color: #000;
+  font-size: 20px;
+  padding: 5px 25px;
+  font-weight: bold;
+}
+.bottom-footer {
+  text-align: center;
+  color: #707070;
+}
+.bottom-footer span.contact {
+  font-weight: bolder;
+  color: #000;
+}
+.bottom-footer span.email {
+  padding: 0px 0px 20px 0px;
+  color: #000;
+}
+
+.bottom-footer .copyright {
+  border-top: 1px solid #707070;
+  margin: 10px 0px;
+}
+.bottom-footer .copyright p {
+  color: #707070;
+  padding: 10px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  footer .subtotal {
+    font-size: 15px;
+  }
+  footer button.link-button {
+    font-size: 14px;
+  }
+  main .items-grid {
+    grid-template-columns: auto;
+  }
+  main .navigation .hotlinks {
+    flex-wrap: wrap;
+  }
+  header .tagline p {
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  header .tagline h1 {
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 1rem;
+  }
+}
+@media screen and (max-width:480px) {
+  footer .subtotal {
+    font-size: 15px;
+  }
+  footer button.link-button {
+    font-size: 14px;
+  }
+  main .items-grid {
+    grid-template-columns: auto;
+  }
+  main .navigation .hotlinks {
+    flex-wrap: wrap;
+  }
+  header .tagline p {
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  header .tagline h1 {
+    font-size: 1.5rem;
+    background-color: white;
+    padding: 1rem;
+  }
+}
+
+
   

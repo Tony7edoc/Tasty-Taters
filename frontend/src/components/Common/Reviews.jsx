@@ -1,61 +1,54 @@
-import React, { useEffect, useState } from 'react'
-import closeIcon from '../../assets/img/close-icon.png'
-import API from '../../API'
-import goodImg from '../../assets/img/good.png';
+import React, { useEffect, useState } from 'react';
+import closeIcon from '../../assets/img/close-icon.png';
+import API from '../../API';
+
 
 const api = new API();
 
-const Reviews = ({selectedItemId,setSelectedItemId,setShowReviews}) => {
+const Reviews = ({ selectedItemId, setSelectedItemId, setShowReviews }) => {
+    const [reviews, setReviews] = useState([]);
 
-    
-    const [reviews,setReviews] = useState([])
 
     useEffect(() => {
-        api.getReviews(selectedItemId)
-        .then((reviews) => {
-            setSelectedItemId(null);
-            setReviews(reviews)
-        })
-    })
+      window.scrollTo(0, 0);
+  }, []);
 
-    const getLikeCount = (like_count) => {
-        switch(like_count) {
-            case 1:
-                return goodImg;
-            case 2:
-                return goodImg;
-            case 3:
-                return goodImg;
-            default:
-                return goodImg
+    useEffect(() => {
+        if (selectedItemId !== null) {
+            api.getReviews(selectedItemId)
+                .then((reviews) => {
+                    setSelectedItemId(null);
+                    setReviews(reviews);
+                })
+                .catch((error) => {
+                    console.error('Failed to fetch reviews:', error);
+                });
         }
-    }
+    }, [selectedItemId]); // Add selectedItemId as a dependency
 
+   
 
+    return (
+        <div className="overlay">
+            <div className="review-box">
+                <div className="close">
+                    <img src={closeIcon} alt="close" onClick={() => setShowReviews(false)} />
+                </div>
+                <div className="write-review">
+                    <h2>Reviews for "American Food"</h2>
+                </div>
+                <ol>
+                    {reviews && reviews.length > 0 && reviews.map((review) => (
+                        <li key={review.id}>
+                            <p> Likes: {review.like_count}</p>
+                            <div>{review.name}</div>
+                            <div>{review.body}</div>
+                        </li>
+                    ))}
+                </ol>
+            </div>
+        </div>
+    );
+};
 
-  return (
-    <div class="overlay">
-    <div class="review-box">
-      <div class="close">
-        <img src={closeIcon} alt="close"  onClick={() => setShowReviews(false)}/>
-      </div>
-      <div class="write-review">
-        <h2>Reviews for "Amenrican Food"</h2>
-      </div>
-      <ul >
-        {
-            reviews && reviews.length > 0 && reviews.map((review) => (
-                <li>
-                    <img src={getLikeCount(review.like_count)} alt="" />
-                    <div>{review.name}</div>
-                    <div>{review.body}</div>
-                </li>
-            ))
-        }
-      </ul>
-    </div>
-  </div>
-  )
-}
-
-export default Reviews
+export default Reviews;
