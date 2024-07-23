@@ -47,13 +47,27 @@ export default class API {
     formData.append('name',name);
     formData.append('body',body);
     formData.append('like_count',like_count);
+
     const savedReview = await api.post('/reviews/add',formData)
     .then((response) => {
-        response.data;
+        response.data();
     })
     .catch((error) => {
         throw new Error(error)
     })
     return savedReview
+   }
+
+   getReviews = async(item_id) => {
+    let url = '/reviews?item_id' + item_id;
+    const reviews = await api
+    .get(url)
+    .then((response) => {
+        return response.data.results;
+    })
+    .catch((error) => {
+        throw new Error(error)
+    })
+    return reviews
    }
 }

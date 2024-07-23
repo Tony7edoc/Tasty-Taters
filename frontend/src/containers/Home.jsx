@@ -7,11 +7,13 @@ import Item from "../components/Common/Item";
 import { getCarts, getSubtotal } from "../reducks/carts/selectors";
 import { fetchFromLocalStorage } from "../reducks/carts/operations";
 import WriteReview from "../components/Common/WriteReview";
+import Reviews from "../components/Common/Reviews";
 
 const Home = () => {
   const [showCartList, setShowCartList] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState();
   const [showWriteReview, setShowWriteReview] = useState(false);
+  const [showReviews, setShowReviews] = useState(false);
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const items = getItems(selector);
@@ -42,6 +44,7 @@ const Home = () => {
           selected_count={selected_count}
           setShowWriteReview={setShowWriteReview}
           setSelectedItemId={setSelectedItemId}
+          setShowReviews={setShowReviews}
         />
       </div>
     );
@@ -83,6 +86,16 @@ const Home = () => {
               selectedItemId={selectedItemId}
               setSelectedItemId={setSelectedItemId}
               setShowWriteReview={setShowWriteReview}
+            />
+          </div>
+        )}
+
+        {showReviews && (
+          <div className="overlay">
+            <Reviews
+              selectedItemId={selectedItemId}
+              setSelectedItemId={setSelectedItemId}
+              setShowReviews={setShowReviews}
             />
           </div>
         )}

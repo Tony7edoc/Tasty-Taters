@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addCart, decreaseCart, increaseCart } from "../../reducks/carts/operations";
 import cartImage from '../../assets/img/add-to-cart.png'
 
-const Item = ({item,selected_count,setShowWriteReview,setSelectedItemId}) => {
+const Item = ({item,selected_count,setShowWriteReview,setSelectedItemId,setShowReviews}) => {
 
   const dispatch = useDispatch();
 
@@ -25,6 +25,11 @@ const Item = ({item,selected_count,setShowWriteReview,setSelectedItemId}) => {
     setShowWriteReview(true)
   }
 
+  const checkReview = () => {
+    setSelectedItemId(item.id)
+    setShowReviews(true)
+  }
+
   return (
     <div class="item">
       <div class="item-image">
@@ -39,7 +44,7 @@ const Item = ({item,selected_count,setShowWriteReview,setSelectedItemId}) => {
       </div>
       <div class="item-reviews">
         <a onClick={() => clickWriteReviw()}>write review</a>
-        <a href="/checkreviews.html">check review</a>
+        <a onClick={() => checkReview()}>check review</a>
       </div>
       <div class="item-price">
         {selected_count == 0 ? (
